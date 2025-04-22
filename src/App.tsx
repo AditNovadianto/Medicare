@@ -1,6 +1,13 @@
+import Home from "./components/Home"
+import Navbar from "./components/Navbar"
+
 const App = () => {
   return (
-    <div>App</div>
+    <div className="font-sans">
+      <Navbar />
+
+      <Home />
+    </div>
   )
 }
 
