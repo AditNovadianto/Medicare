@@ -6,7 +6,7 @@ const Navbar = () => {
             <div className="flex font-semibold gap-10 text-gray-900">
                 <a href="#">Home</a>
 
-                <a href="#">About Us</a>
+                <a href="#aboutus">About Us</a>
 
                 <a href="#">Feature</a>
 
