@@ -28,15 +28,15 @@ const features = [
 
 const Feature = () => {
     return (
-        <div id="feature" className="py-10 px-20 min-h-screen flex flex-col items-center justify-center">
+        <div id="feature" className="py-10 px-5 lg:px-20 min-h-screen flex flex-col items-center justify-center">
             <div>
-                <p className="text-3xl font-bold text-gray-900">Fitur Keunggulan Kami</p>
+                <p className="text-3xl mt-20 lg:mt-0 font-bold text-gray-900">Fitur Keunggulan Kami</p>
 
                 <p className="text-gray-500 text-xl font-semibold mt-10">Kami menghadirkan teknologi sebagai solusi untuk meningkatkan akses dan kualitas layanan kesehatan yang mudah dijangkau, kapan pun dan di mana pun Anda berada.</p>
 
-                <div className="mt-10 flex gap-10">
+                <div className="mt-10 lg:mt-0 flex flex-col xl:flex-row gap-10">
                     {features.map((feature, index) => (
-                        <div key={index} className="flex p-10 bg-white rounded-lg shadow-lg flex-col gap-10 items-start w-full mt-10">
+                        <div key={index} className="flex p-10 bg-white rounded-lg shadow-lg flex-col gap-10 items-start w-full mt-0 lg:mt-10">
                             <img className="w-14" src={feature.image} alt={feature.title} />
 
                             <div>

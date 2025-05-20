@@ -2,8 +2,8 @@ import heroAboutUs from "../images/hero-abous-us.png"
 
 const AboutUs = () => {
     return (
-        <div id="aboutus" className="py-10 px-20 h-screen flex flex-col justify-center items-center">
-            <div className="flex items-center gap-10 justify-evenly w-full">
+        <div id="aboutus" className="py-10 px-5 lg:px-20 min-h-screen flex flex-col justify-center items-center">
+            <div className="flex flex-col lg:flex-row items-center gap-10 justify-evenly w-full">
                 <div>
                     <p className="text-3xl font-bold text-gray-900">Tentang Kami</p>
 

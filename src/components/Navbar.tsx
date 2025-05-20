@@ -1,24 +1,64 @@
+import { useState } from "react"
+import { Menu, X } from "lucide-react"
+import logo from "../images/logo.png"
+import { Link } from "react-router-dom"
+
 const Navbar = () => {
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+
     return (
-        <div className="fixed top-0 left-0 right-0 flex justify-between items-center bg-transparent backdrop-blur-xl shadow-md p-5 z-10">
-            <h1 className="text-2xl font-semibold">MediCare+</h1>
+        <div className="fixed top-0 left-0 right-0 flex justify-between items-center bg-transparent backdrop-blur-xl shadow-md p-5 z-20">
+            <img src={logo} className="w-40" alt="logo" />
 
-            <div className="flex font-semibold gap-10 text-gray-900">
+            {/* Hamburger Button */}
+            <button
+                onClick={() => setIsSidebarOpen(true)}
+                className="block lg:hidden z-30"
+            >
+                <Menu className={`${isSidebarOpen ? 'hidden' : 'block'} scale-[1.5]`} />
+            </button>
+
+            {/* Sidebar */}
+            <div
+                className={`
+                    fixed top-0 right-0 h-screen w-[80%] bg-[#E6F6FE] shadow-lg z-20
+                    transform transition-transform duration-300 ease-in-out
+                    ${isSidebarOpen ? "translate-x-0" : "translate-x-full"}
+                `}
+            >
+                <div className="flex justify-end p-5">
+                    <button onClick={() => setIsSidebarOpen(false)}>
+                        <X className="scale-[1.5]" />
+                    </button>
+                </div>
+
+                <div className="flex flex-col gap-6 p-6 font-semibold text-gray-800">
+                    <a href="#">Home</a>
+                    <a href="#aboutus">About Us</a>
+                    <a href="#feature">Feature</a>
+                    <a href="#">Product</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">Contact Us</a>
+
+                    <button className="mt-6 text-blue-800 border-2 border-blue-800 px7 py-3 rounded-lg">Login</button>
+
+                    <button className="bg-blue-800 text-white px-7 py-3 rounded-lg">Join Us</button>
+                </div>
+            </div>
+
+            {/* Desktop Menu */}
+            <div className="hidden lg:flex font-semibold gap-10 text-gray-900">
                 <a href="#">Home</a>
-
                 <a href="#aboutus">About Us</a>
-
                 <a href="#feature">Feature</a>
-
                 <a href="#">Product</a>
-
                 <a href="#">Pricing</a>
-
                 <a href="#">Contact Us</a>
             </div>
 
-            <div className="flex font-semibold text-blue-800 gap-10">
-                <button>Login</button>
+            {/* Desktop Buttons */}
+            <div className="hidden lg:flex font-semibold text-blue-800 gap-5">
+                <Link to={"/signin"} className="border-2 border-blue-800 py-3 block px-5 rounded-lg">Login</Link>
 
                 <button className="bg-blue-800 px-7 py-3 rounded-lg text-white">Join Us</button>
             </div>
