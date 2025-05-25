@@ -3,6 +3,7 @@ import Clients from "./components/Clients"
 import Feature from "./components/Feature"
 import Home from "./components/Home"
 import Navbar from "./components/Navbar"
+import OurTeam from "./components/OurTeam"
 import Products from "./components/Products"
 
 const App = () => {
@@ -19,6 +20,8 @@ const App = () => {
       <Products />
 
       <Clients />
+
+      <OurTeam />
     </div>
   )
 }
