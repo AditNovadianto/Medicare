@@ -2,6 +2,8 @@ import { useState } from "react";
 import background from "../images/background-signin.png";
 import logo from "../images/logo.png";
 import { Link, useNavigate } from "react-router-dom";
+import signin from "../images/signin.png"
+import { Eye, EyeOff } from "lucide-react";
 
 const SignIn = () => {
     const [email, setEmail] = useState("");
@@ -9,6 +11,7 @@ const SignIn = () => {
     const [emailError, setEmailError] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [submitError, setSubmitError] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
 
     const navigate = useNavigate();
 
@@ -30,7 +33,7 @@ const SignIn = () => {
         setSubmitError("");
 
         try {
-            const response = await fetch("http://localhost:3000/auth/signInPasien", {
+            const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/auth/signIn`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -55,10 +58,10 @@ const SignIn = () => {
 
     return (
         <div
-            className="bg-cover bg-no-repeat h-screen p-20 flex items-center justify-center"
+            className="bg-cover bg-no-repeat min-h-screen p-5 md:p-20 flex items-center justify-center"
             style={{ backgroundImage: `url(${background})` }}
         >
-            <div className="bg-white rounded-lg shadow-lg p-10 w-[80%]">
+            <div className="bg-white rounded-lg flex flex-col md:flex-row items-center gap-5 shadow-lg p-5 md:p-10 w-full md:w-[80%]">
                 <div className="w-full text-center">
                     <img src={logo} className="w-[350px] m-auto" alt="Logo" />
 
@@ -80,14 +83,20 @@ const SignIn = () => {
                             )}
                         </div>
 
-                        <div className="mb-4 text-left">
+                        <div className="mb-4 relative text-left">
                             <input
-                                type="password"
+                                type={showPassword ? "text" : "password"}
                                 placeholder="Password"
                                 className="w-full p-2 border-2 border-blue-300 rounded"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
+
+                            <button className="absolute right-5 top-3" type="button" onClick={() => setShowPassword(!showPassword)}>{showPassword ? <EyeOff /> : <Eye />}</button>
+                        </div>
+
+                        <div className="text-right w-full">
+                            <Link to={"/"} className="text-blue-500 font-semibold">Forgot Password?</Link>
                         </div>
 
                         {submitError && (
@@ -103,7 +112,7 @@ const SignIn = () => {
                         <button
                             type="submit"
                             className={`${isLoading ? "bg-blue-400" : "bg-blue-700 hover:bg-blue-800"
-                                } text-white py-2 px-4 rounded w-full transition duration-200 flex justify-center`}
+                                } text-white py-2 px-4 mt-5 rounded w-full transition duration-200 flex justify-center`}
                         >
                             {isLoading ? (
                                 <svg
@@ -132,8 +141,10 @@ const SignIn = () => {
                         </button>
                     </form>
 
-                    <p className="mt-5 font-semibold">Tidak punya Akun? <Link to={"/signUp"} className="text-blue-500">Register</Link></p>
+                    <p className="mt-5 font-semibold">Tidak punya Akun? <Link to={"/signUp"} className="text-blue-500">Sign Up</Link></p>
                 </div>
+
+                <img src={signin} className="w-[80%] mt-10 md:mt-0 md:w-[50%]" alt="" />
             </div>
         </div>
     );
