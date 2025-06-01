@@ -96,7 +96,7 @@ const Products = () => {
                             </div>
                         </div>
 
-                        <button className="font-semibold text-white w-full py-4 mt-10 rounded-full bg-[#011623]">Self Care</button>
+                        <button className="font-semibold cursor-pointer text-white w-full py-4 mt-10 rounded-full bg-[#011623] hover:bg-gray-800 transition-all">Self Care</button>
                     </div>
                 ))}
             </div>

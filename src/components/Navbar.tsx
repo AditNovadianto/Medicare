@@ -58,9 +58,9 @@ const Navbar = () => {
 
             {/* Desktop Buttons */}
             <div className="hidden lg:flex font-semibold text-blue-800 gap-5">
-                <Link to={"/signin"} className="border-2 border-blue-800 py-3 block px-5 rounded-lg">Login</Link>
+                <Link to={"/signin"} className="border-2 border-blue-800 hover:bg-blue-800 hover:text-white transition-all py-3 block px-5 rounded-lg">Login</Link>
 
-                <Link to={"/signup"} className="bg-blue-800 px-7 py-3 rounded-lg text-white">Join Us</Link>
+                <Link to={"/signup"} className="bg-blue-800 hover:bg-blue-700 transition-all px-7 py-3 rounded-lg text-white">Join Us</Link>
             </div>
         </div>
     )

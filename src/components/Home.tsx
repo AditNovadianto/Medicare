@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import heroHome from "../images/hero-home.png"
 
 const Home = () => {
@@ -14,9 +15,11 @@ const Home = () => {
                     </p>
 
                     <div className="flex flex-col lg:flex-row items-center gap-5 mt-10">
-                        <button className="px-10 w-full font-semibold cursor-pointer py-3 bg-blue-800 rounded-lg">Daftar Sekarang</button>
+                        <Link to={"/signUp"} className="block px-10 w-full font-semibold cursor-pointer py-3 rounded-lg transition-all bg-gradient-to-r from-blue-700 via-blue-500 to-blue-800 bg-[length:200%_200%] animate-gradient-x hover:scale-[1.05] text-white">
+                            Daftar Sekarang
+                        </Link>
 
-                        <button className="px-10 text-nowrap w-full py-3 border-2 cursor-pointer border-blue-800 rounded-lg text-blue-800">Masuk Sebagai Tenaga Kesehatan</button>
+                        <Link to={"/signIn"} className="px-10 text-nowrap w-full py-3 border-2 cursor-pointer border-blue-800 hover:bg-blue-800 hover:text-white transition-all rounded-lg text-blue-800">Masuk Sebagai Tenaga Kesehatan</Link>
                     </div>
                 </div>
 
