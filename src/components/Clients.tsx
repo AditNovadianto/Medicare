@@ -44,8 +44,10 @@ const Clients = () => {
     }, [])
 
     return (
-        <div className="py-16 px-4 bg-gray-50">
+        <div id='clients' className="py-32 px-5 lg:px-20 bg-gray-50">
             <h2 className="text-3xl font-bold mb-10 text-center text-gray-800">Our Happy Clients</h2>
+
+            <p className='text-gray-500 text-xl font-semibold mt-10 text-center'>Kami bangga telah dipercaya oleh berbagai fasilitas kesehatan di seluruh Indonesia. Kepuasan klien adalah motivasi kami untuk terus menghadirkan layanan terbaik dan solusi digital yang membantu mempermudah operasional mereka. Dari klinik, puskesmas, hingga rumah sakit. inilah cerita kesuksesan bersama mereka.</p>
 
             <Swiper
                 onSwiper={(swiper) => {
@@ -61,7 +63,7 @@ const Clients = () => {
                 }}
             >
                 {datas.map((data, index) => (
-                    <SwiperSlide key={index} className="bg-white p-6 shadow-md rounded-lg">
+                    <SwiperSlide key={index} className="bg-white mt-10 p-6 shadow-md rounded-lg">
                         <div className="flex items-center gap-5">
                             <img src={data.image} alt={data.name} className="w-24 h-24 rounded-full" />
                             <div>
@@ -78,13 +80,13 @@ const Clients = () => {
             <div className="flex justify-center gap-5 mt-8">
                 <button
                     ref={prevRef}
-                    className="bg-[#0d1b2a] text-white p-4 rounded-md hover:bg-[#1b263b] transition-all"
+                    className="bg-[#0d1b2a] text-white p-4 cursor-pointer rounded-md hover:bg-[#1b263b] transition-all"
                 >
                     <ArrowLeft size={20} />
                 </button>
                 <button
                     ref={nextRef}
-                    className="bg-[#0d1b2a] text-white p-4 rounded-md hover:bg-[#1b263b] transition-all"
+                    className="bg-[#0d1b2a] text-white p-4 cursor-pointer rounded-md hover:bg-[#1b263b] transition-all"
                 >
                     <ArrowRight size={20} />
                 </button>

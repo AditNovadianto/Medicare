@@ -41,8 +41,10 @@ const datas = [
 
 const Products = () => {
     return (
-        <div className="py-10 px-5 lg:px-20 min-h-screen flex flex-col">
+        <div id="product" className="md:py-32 py-10 px-5 lg:px-20 min-h-screen flex flex-col">
             <p className="mt-20 lg:mt-0 text-3xl font-bold text-gray-900">Our products</p>
+
+            <p className="text-gray-500 text-xl font-semibold mt-10">Kami menyediakan berbagai pilihan paket layanan yang fleksibel dan terjangkau, mulai dari fasilitas dasar hingga fitur lengkap untuk klinik, puskesmas, hingga rumah sakit. Semua demi memudahkan pencatatan medis digital Anda.</p>
 
             <div className="mt-10 flex flex-col lg:flex-row items-start gap-10">
                 {datas.map((data, index) => (

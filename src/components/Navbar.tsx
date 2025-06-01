@@ -15,7 +15,7 @@ const Navbar = () => {
                 onClick={() => setIsSidebarOpen(true)}
                 className="block lg:hidden z-30"
             >
-                <Menu className={`${isSidebarOpen ? 'hidden' : 'block'} scale-[1.5]`} />
+                <Menu className={`${isSidebarOpen ? 'hidden' : 'block'} scale-[1.5] cursor-pointer`} />
             </button>
 
             {/* Sidebar */}
@@ -28,7 +28,7 @@ const Navbar = () => {
             >
                 <div className="flex justify-end p-5">
                     <button onClick={() => setIsSidebarOpen(false)}>
-                        <X className="scale-[1.5]" />
+                        <X className="scale-[1.5] cursor-pointer" />
                     </button>
                 </div>
 
@@ -36,13 +36,13 @@ const Navbar = () => {
                     <a href="#">Home</a>
                     <a href="#aboutus">About Us</a>
                     <a href="#feature">Feature</a>
-                    <a href="#">Product</a>
-                    <a href="#">Pricing</a>
-                    <a href="#">Contact Us</a>
+                    <a href="#product">Product</a>
+                    <a href="#clients">Clients</a>
+                    <a href="#contactUs">Contact Us</a>
 
-                    <button className="mt-6 text-blue-800 border-2 border-blue-800 px7 py-3 rounded-lg">Login</button>
+                    <Link to={"/signin"} className="border-2 border-blue-800 py-3 block px-5 rounded-lg text-center">Login</Link>
 
-                    <button className="bg-blue-800 text-white px-7 py-3 rounded-lg">Join Us</button>
+                    <Link to={"/signup"} className="bg-blue-800 px-7 py-3 rounded-lg text-white text-center">Join Us</Link>
                 </div>
             </div>
 
@@ -51,16 +51,16 @@ const Navbar = () => {
                 <a href="#">Home</a>
                 <a href="#aboutus">About Us</a>
                 <a href="#feature">Feature</a>
-                <a href="#">Product</a>
-                <a href="#">Pricing</a>
-                <a href="#">Contact Us</a>
+                <a href="#product">Product</a>
+                <a href="#clients">Clients</a>
+                <a href="#contactUs">Contact Us</a>
             </div>
 
             {/* Desktop Buttons */}
             <div className="hidden lg:flex font-semibold text-blue-800 gap-5">
                 <Link to={"/signin"} className="border-2 border-blue-800 py-3 block px-5 rounded-lg">Login</Link>
 
-                <button className="bg-blue-800 px-7 py-3 rounded-lg text-white">Join Us</button>
+                <Link to={"/signup"} className="bg-blue-800 px-7 py-3 rounded-lg text-white">Join Us</Link>
             </div>
         </div>
     )
