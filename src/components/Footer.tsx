@@ -1,12 +1,22 @@
 import { Facebook, Instagram, Mail, MapPin, Phone, Twitter } from "lucide-react"
 import { Link } from "react-router-dom"
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import { useEffect } from 'react'
 
 const Footer = () => {
+    useEffect(() => {
+        AOS.init({
+            duration: 1000, // durasi animasi dalam ms
+            once: true,     // animasi hanya dijalankan sekali
+        });
+    }, []);
+
     return (
         <>
             <div className="w-full p-5 md:p-20 flex flex-col md:flex-row items-start justify-between gap-10">
                 <div className="flex justify-between md:justify-around w-full gap-10">
-                    <div>
+                    <div data-aos="fade-up">
                         <p className="font-semibold text-black">Company Info</p>
 
                         <div className="mt-10 text-gray-500 font-semibold flex flex-col gap-5">
@@ -17,7 +27,7 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <div>
+                    <div data-aos="fade-up" data-aos-delay="100">
                         <p className="font-semibold text-black">Legal</p>
 
                         <div className="mt-10 text-gray-500 font-semibold flex flex-col gap-5">
@@ -30,7 +40,7 @@ const Footer = () => {
                 </div>
 
                 <div className="flex justify-between md:justify-around w-full mt-10 md:mt-0 gap-10">
-                    <div>
+                    <div data-aos="fade-up" data-aos-delay="200">
                         <p className="font-semibold text-black">Features</p>
 
                         <div className="mt-10 text-gray-500 font-semibold flex flex-col gap-5">
@@ -41,11 +51,11 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <div>
+                    <div data-aos="fade-up" data-aos-delay="300">
                         <p className="font-semibold text-black">Resourches</p>
 
                         <div className="mt-10 text-gray-500 font-semibold flex flex-col gap-5">
-                            <Link to={"/"}>IOS & Andorid</Link>
+                            <Link to={"/"}>IOS & Android</Link>
                             <Link to={"/"}>Watch a Demo</Link>
                             <Link to={"/"}>Customers</Link>
                             <Link to={"/"}>API</Link>
@@ -53,7 +63,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="w-full mt-10 md:mt-0">
+                <div data-aos="fade-up" data-aos-delay="400" className="w-full mt-10 md:mt-0">
                     <p className="font-semibold text-black">Get In Touch</p>
 
                     <div className="mt-10 text-gray-500 font-semibold flex flex-col gap-5">
@@ -78,7 +88,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="w-full bg-gray-100 px-5 py-10 md:py-10 md:px-20 flex flex-col gap-10 md:flex-row items-center justify-between">
+            <div data-aos="fade-up" data-aos-delay="100" className="w-full bg-gray-100 px-5 py-10 md:py-10 md:px-20 flex flex-col gap-10 md:flex-row items-center justify-between">
                 <p className="text-center font-semibold">Made With ❤️ By Medicare+ All Right Reserved</p>
 
                 <div className="text-blue-500 flex items-center gap-5">

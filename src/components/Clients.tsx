@@ -5,6 +5,8 @@ import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import type { Swiper as SwiperType } from 'swiper'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 import thomas from "../images/thomas.png"
 import alena from "../images/alena.png"
@@ -28,6 +30,13 @@ const Clients = () => {
     const swiperRef = useRef<SwiperType | null>(null)
 
     useEffect(() => {
+        AOS.init({
+            duration: 1000, // durasi animasi dalam ms
+            once: true,     // animasi hanya dijalankan sekali
+        });
+    }, []);
+
+    useEffect(() => {
         if (
             swiperRef.current &&
             swiperRef.current.params &&
@@ -45,14 +54,18 @@ const Clients = () => {
 
     return (
         <div id='clients' className="py-32 px-5 lg:px-20 bg-gray-50">
-            <h2 className="text-3xl font-bold mb-10 text-center text-gray-800">Our Happy Clients</h2>
+            <div data-aos="fade-up">
+                <h2 className="text-3xl font-bold mb-10 text-center text-gray-800">Our Happy Clients</h2>
 
-            <p className='text-gray-500 text-xl font-semibold mt-10 text-center'>Kami bangga telah dipercaya oleh berbagai fasilitas kesehatan di seluruh Indonesia. Kepuasan klien adalah motivasi kami untuk terus menghadirkan layanan terbaik dan solusi digital yang membantu mempermudah operasional mereka. Dari klinik, puskesmas, hingga rumah sakit. inilah cerita kesuksesan bersama mereka.</p>
+                <p className='text-gray-500 text-xl font-semibold mt-10 text-center'>Kami bangga telah dipercaya oleh berbagai fasilitas kesehatan di seluruh Indonesia. Kepuasan klien adalah motivasi kami untuk terus menghadirkan layanan terbaik dan solusi digital yang membantu mempermudah operasional mereka. Dari klinik, puskesmas, hingga rumah sakit. inilah cerita kesuksesan bersama mereka.</p>
+            </div>
 
             <Swiper
                 onSwiper={(swiper) => {
                     swiperRef.current = swiper
                 }}
+                data-aos="fade-up"
+                data-aos-delay="300"
                 modules={[Navigation]}
                 spaceBetween={30}
                 slidesPerView={3}

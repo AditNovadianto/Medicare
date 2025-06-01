@@ -2,6 +2,9 @@ import { CircleCheck } from "lucide-react"
 import free from "../images/free.png"
 import growth from "../images/growth.png"
 import professional from "../images/professional.png"
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import { useEffect } from 'react'
 
 const datas = [
     {
@@ -40,15 +43,24 @@ const datas = [
 ]
 
 const Products = () => {
+    useEffect(() => {
+        AOS.init({
+            duration: 1000, // durasi animasi dalam ms
+            once: true,     // animasi hanya dijalankan sekali
+        });
+    }, []);
+
     return (
         <div id="product" className="md:py-32 py-10 px-5 lg:px-20 min-h-screen flex flex-col">
-            <p className="mt-20 lg:mt-0 text-3xl font-bold text-gray-900">Our products</p>
+            <div data-aos="fade-up">
+                <p className="mt-20 lg:mt-0 text-3xl font-bold text-gray-900">Our products</p>
 
-            <p className="text-gray-500 text-xl font-semibold mt-10">Kami menyediakan berbagai pilihan paket layanan yang fleksibel dan terjangkau, mulai dari fasilitas dasar hingga fitur lengkap untuk klinik, puskesmas, hingga rumah sakit. Semua demi memudahkan pencatatan medis digital Anda.</p>
+                <p className="text-gray-500 text-xl font-semibold mt-10">Kami menyediakan berbagai pilihan paket layanan yang fleksibel dan terjangkau, mulai dari fasilitas dasar hingga fitur lengkap untuk klinik, puskesmas, hingga rumah sakit. Semua demi memudahkan pencatatan medis digital Anda.</p>
+            </div>
 
             <div className="mt-10 flex flex-col lg:flex-row items-start gap-10">
                 {datas.map((data, index) => (
-                    <div key={index} className="min-h-[650px] flex flex-col gap-5 justify-between bg-[#E6F6FE] w-full p-5 rounded-lg">
+                    <div key={index} data-aos="fade-up" data-aos-delay={(index + 1) * 100} className="min-h-[650px] flex flex-col gap-5 justify-between bg-[#E6F6FE] w-full p-5 rounded-lg">
                         <div>
                             <img src={data.image} className="w-20" alt="" />
 

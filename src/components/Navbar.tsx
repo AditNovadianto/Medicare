@@ -8,7 +8,9 @@ const Navbar = () => {
 
     return (
         <div className="fixed top-0 left-0 right-0 flex justify-between items-center bg-transparent backdrop-blur-xl shadow-md p-5 z-20">
-            <img src={logo} className="w-40" alt="logo" />
+            <a href="#" className="curspor-pointer">
+                <img src={logo} className="w-40" alt="logo" />
+            </a>
 
             {/* Hamburger Button */}
             <button
