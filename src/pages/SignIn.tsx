@@ -4,6 +4,9 @@ import logo from "../images/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import signin from "../images/signin.png"
 import { Eye, EyeOff } from "lucide-react";
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import { useEffect } from 'react'
 
 const SignIn = () => {
     const [email, setEmail] = useState("");
@@ -14,6 +17,13 @@ const SignIn = () => {
     const [showPassword, setShowPassword] = useState(false);
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        AOS.init({
+            duration: 1000, // durasi animasi dalam ms
+            once: true,     // animasi hanya dijalankan sekali
+        });
+    }, []);
 
     const validateEmail = (email: string) => {
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -61,7 +71,7 @@ const SignIn = () => {
             className="bg-cover bg-no-repeat min-h-screen p-5 md:p-20 flex items-center justify-center"
             style={{ backgroundImage: `url(${background})` }}
         >
-            <div className="bg-white rounded-lg flex flex-col md:flex-row items-center gap-5 shadow-lg p-5 md:p-10 w-full md:w-[80%]">
+            <div data-aos="fade-up" className="bg-white rounded-lg flex flex-col md:flex-row items-center gap-5 shadow-lg p-5 md:p-10 w-full md:w-[80%]">
                 <div className="w-full text-center">
                     <img src={logo} className="w-[350px] m-auto" alt="Logo" />
 

@@ -4,6 +4,9 @@ import background from "../images/background-signin.png";
 import signup from "../images/signup.png"
 import logo from "../images/logo.png"
 import { Eye, EyeOff } from "lucide-react";
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import { useEffect } from 'react'
 
 const SignUp = () => {
     const [form, setForm] = useState({
@@ -19,6 +22,13 @@ const SignUp = () => {
     const [submitError, setSubmitError] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        AOS.init({
+            duration: 1000, // durasi animasi dalam ms
+            once: true,     // animasi hanya dijalankan sekali
+        });
+    }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -75,7 +85,7 @@ const SignUp = () => {
         <div className="bg-cover bg-no-repeat min-h-screen p-5 md:p-20 flex items-center justify-center"
             style={{ backgroundImage: `url(${background})` }}
         >
-            <div className="bg-white flex flex-col md:flex-row items-center gap-5 shadow-md rounded-lg p-5 md:p-10 w-full md:w-[80%]">
+            <div data-aos="fade-up" className="bg-white flex flex-col md:flex-row items-center gap-5 shadow-md rounded-lg p-5 md:p-10 w-full md:w-[80%]">
                 <div className="w-full">
                     <form
                         onSubmit={handleSubmit}
