@@ -5,7 +5,8 @@ import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import SignIn from './pages/SignIn.tsx'
 import SignUp from './pages/SignUp.tsx'
-import Dashboard from './pages/Dashboard.tsx'
+import Panel from './pages/Panel.tsx'
+import NotFound from './pages/NotFound.tsx'
 
 const router = createBrowserRouter([
   {
@@ -21,9 +22,13 @@ const router = createBrowserRouter([
     element: <SignUp />
   },
   {
-    path: '/dashboard',
-    element: <Dashboard />
-  }
+    path: '/panel',
+    element: <Panel />
+  },
+  {
+    path: '*',
+    element: <NotFound />
+  },
 ], {
   future: {
     v7_startTransition: true,

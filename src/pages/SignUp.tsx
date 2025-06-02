@@ -10,7 +10,7 @@ import { useEffect } from 'react'
 
 const SignUp = () => {
     const [form, setForm] = useState({
-        nama_lengkap: "",
+        nama_pasien: "",
         nik: "",
         jenis_kelamin: "",
         email: "",
@@ -38,7 +38,7 @@ const SignUp = () => {
 
     const validateForm = () => {
         const newErrors: { [key: string]: string } = {};
-        if (!form.nama_lengkap) newErrors.nama_lengkap = "Nama lengkap wajib diisi";
+        if (!form.nama_pasien) newErrors.nama_lengkap = "Nama lengkap wajib diisi";
         if (!form.nik || form.nik.length !== 16) newErrors.nik = "NIK harus 16 digit";
         if (!form.jenis_kelamin) newErrors.jenis_kelamin = "Jenis kelamin wajib dipilih";
         if (!form.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) newErrors.email = "Format email tidak valid";
@@ -94,8 +94,8 @@ const SignUp = () => {
                         <img src={logo} className="w-[350px] m-auto" alt="Logo" />
 
                         <div>
-                            <input placeholder="Nama Lengkap" name="nama_lengkap" className="input border-2 mt-10 border-blue-300 rounded-lg p-2 w-full" onChange={handleChange} />
-                            {errors.nama_lengkap && <p className="text-red-500 text-sm">{errors.nama_lengkap}</p>}
+                            <input placeholder="Nama Lengkap" name="nama_pasien" className="input border-2 mt-10 border-blue-300 rounded-lg p-2 w-full" onChange={handleChange} />
+                            {errors.nama_pasien && <p className="text-red-500 text-sm">{errors.nama_pasien}</p>}
                         </div>
 
                         <div>

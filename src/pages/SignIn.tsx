@@ -54,7 +54,8 @@ const SignIn = () => {
             if (response.ok) {
                 const data = await response.json();
                 localStorage.setItem("user", JSON.stringify(data.user));
-                navigate("/dashboard");
+                localStorage.setItem("token", data.token);
+                navigate("/panel");
             } else {
                 const errorData = await response.json();
                 setSubmitError(errorData.error || "Gagal masuk. Coba lagi.");
