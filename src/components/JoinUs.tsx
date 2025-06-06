@@ -13,7 +13,7 @@ const JoinUs = () => {
     return (
         <div id="contactUs" className="my-48 px-5 lg:px-20 flex flex-col items-center justify-center">
             <div data-aos="fade-up">
-                <p className="text-4xl font-bold tracking-wider uppercase">Join Us</p>
+                <p className="text-4xl font-bold tracking-wider uppercase text-center">Join Us</p>
 
                 <p className="text-lg text-center text-gray-500 font-semibold mt-10">Problems trying to resolve the conflict between the two major realms of classical physics. Newtonian Mechanics</p>
             </div>

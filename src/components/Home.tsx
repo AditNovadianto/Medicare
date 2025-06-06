@@ -25,7 +25,7 @@ const Home = () => {
                     </p>
 
                     <div className="flex flex-col lg:flex-row items-center gap-5 mt-10">
-                        <Link to={"/signUp"} className="block px-10 w-full font-semibold cursor-pointer py-3 rounded-lg transition-all bg-gradient-to-r from-blue-700 via-blue-500 to-blue-800 bg-[length:200%_200%] animate-gradient-x hover:scale-[1.05] text-white">
+                        <Link to={"/signUp"} className="block px-10 w-full text-center font-semibold cursor-pointer py-3 rounded-lg transition-all bg-gradient-to-r from-blue-700 via-blue-500 to-blue-800 bg-[length:200%_200%] animate-gradient-x hover:scale-[1.05] text-white">
                             Daftar Sekarang
                         </Link>
 
