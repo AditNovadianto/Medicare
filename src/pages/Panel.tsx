@@ -7,12 +7,14 @@ import Breadcrumb from "../components/BreadCrumb";
 import Dashboard from "../components/Dashboard";
 import profilePicture from "../images/user.png";
 import RiwayatMedis from "../components/RiwayatMedis";
+import ResepAndObat from "../components/ResepAndObat";
 
 const Panel = () => {
     const [section, setSection] = useState("dashboard");
     const [showPopup, setShowPopup] = useState({ status: false, message: "" });
     const [dataDashboard, setDataDashboard] = useState<any>(null);
     const [dataRiwayatMedis, setDataRiwayatMedis] = useState<any>(null);
+    const [dataResepAndObat, setDataResepAndObat] = useState<any>(null);
     const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
     const user = JSON.parse(localStorage.getItem("user") || "{}");
@@ -96,8 +98,34 @@ const Panel = () => {
             }
         }
 
+        const fetchResepAndObat = async () => {
+            try {
+                if (!user.nik) return; // Pastikan ada NIK pasien baru fetch
+
+                const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/resepObat/${user.nik}`, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    setDataResepAndObat(data);
+                } else {
+                    const errorData = await response.json();
+                    console.error("Error response:", errorData);
+                    // setShowPopup({ status: true, message: errorData.message || "Gagal memuat data resep dan obat." });
+                }
+            } catch (err) {
+                console.error("Error fetching resep dan obat data:", err);
+                // setShowPopup({ status: true, message: "Gagal memuat data resep dan obat." });
+            }
+        }
+
         fetchDashboard();
         fetchRiwayatMedis();
+        fetchResepAndObat();
     }, [section, user.nik]); // Jangan lupa dependency user.nik
 
     const handleLogout = () => {
@@ -191,6 +219,8 @@ const Panel = () => {
                     {section === "dashboard" && <Dashboard dataDashboard={dataDashboard} />}
 
                     {section === "riwayat medis" && <RiwayatMedis dataRiwayatMedis={dataRiwayatMedis} />}
+
+                    {section === "resep & obat" && <ResepAndObat dataResepAndObat={dataResepAndObat} />}
                 </div>
             </div>
 
