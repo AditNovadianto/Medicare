@@ -17,3 +17,10 @@
 .animate-gradient-x {
   animation: gradient-x 3s ease infinite;
 }
+
+.react-calendar__tile.highlight {
+  background: #0e45b7;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+}

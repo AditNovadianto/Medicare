@@ -8,6 +8,7 @@ import Dashboard from "../components/Dashboard";
 import profilePicture from "../images/user.png";
 import RiwayatMedis from "../components/RiwayatMedis";
 import ResepAndObat from "../components/ResepAndObat";
+import JadwalMedis from "../components/JadwalMedis";
 
 const Panel = () => {
     const [section, setSection] = useState("dashboard");
@@ -15,6 +16,7 @@ const Panel = () => {
     const [dataDashboard, setDataDashboard] = useState<any>(null);
     const [dataRiwayatMedis, setDataRiwayatMedis] = useState<any>(null);
     const [dataResepAndObat, setDataResepAndObat] = useState<any>(null);
+    const [dataJadwalMedis, setDataJadwalMedis] = useState<any>(null);
     const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
     const user = JSON.parse(localStorage.getItem("user") || "{}");
@@ -123,9 +125,35 @@ const Panel = () => {
             }
         }
 
+        const fetchJadwalMedis = async () => {
+            try {
+                if (!user.nik) return; // Pastikan ada NIK pasien baru fetch
+
+                const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/jadwalMedis/${user.nik}`, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    setDataJadwalMedis(data);
+                } else {
+                    const errorData = await response.json();
+                    console.error("Error response:", errorData);
+                    // setShowPopup({ status: true, message: errorData.message || "Gagal memuat data jadwal medis." });
+                }
+            } catch (err) {
+                console.error("Error fetching jadwal medis data:", err);
+                // setShowPopup({ status: true, message: "Gagal memuat data jadwal medis." });
+            }
+        }
+
         fetchDashboard();
         fetchRiwayatMedis();
         fetchResepAndObat();
+        fetchJadwalMedis();
     }, [section, user.nik]); // Jangan lupa dependency user.nik
 
     const handleLogout = () => {
@@ -221,6 +249,8 @@ const Panel = () => {
                     {section === "riwayat medis" && <RiwayatMedis dataRiwayatMedis={dataRiwayatMedis} />}
 
                     {section === "resep & obat" && <ResepAndObat dataResepAndObat={dataResepAndObat} />}
+
+                    {section === "jadwal medis" && <JadwalMedis dataJadwalMedis={dataJadwalMedis} />}
                 </div>
             </div>
 
