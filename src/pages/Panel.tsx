@@ -9,6 +9,8 @@ import profilePicture from "../images/user.png";
 import RiwayatMedis from "../components/RiwayatMedis";
 import ResepAndObat from "../components/ResepAndObat";
 import JadwalMedis from "../components/JadwalMedis";
+import HasilPemeriksaan from "../components/HasilPemeriksaan";
+import TenagaMedisSaya from "../components/TenagaMedisSaya";
 
 const Panel = () => {
     const [section, setSection] = useState("dashboard");
@@ -251,6 +253,10 @@ const Panel = () => {
                     {section === "resep & obat" && <ResepAndObat dataResepAndObat={dataResepAndObat} />}
 
                     {section === "jadwal medis" && <JadwalMedis dataJadwalMedis={dataJadwalMedis} />}
+
+                    {section === "hasil pemeriksaan" && <HasilPemeriksaan />}
+
+                    {section === "tenaga medis saya" && <TenagaMedisSaya />}
                 </div>
             </div>
 

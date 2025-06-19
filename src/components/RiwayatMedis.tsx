@@ -21,25 +21,34 @@ const RiwayatMedis: React.FC<RiwayatMedisProps> = ({ dataRiwayatMedis }) => {
 
     return (
         <div className="mt-10">
-            <p className="text-lg text-gray-500">Riwayat Medis Saya</p>
+            {dataRiwayatMedis === null && (
+                <p className="text-lg text-gray-500">Tidak ada riwayat medis yang ditemukan.</p>
+            )}
 
-            <div>
-                <p className="text-gray-500 mt-5">Hasil</p>
+            {dataRiwayatMedis !== null && (
+                <div>
 
-                <div className="bg-[#93B0C8] rounded-lg p-5 mt-3">
-                    {dataRiwayatMedis.map((item: any, index: number) => (
-                        <div key={index} className="p-5 rounded-lg bg-[#0E45B7] text-white flex flex-col gap-2">
-                            <p className="text-lg font-semibold">Tangga: {formatTanggal(item.tanggal_periksa)} - {item.tenaga_medis.nama_lengkap}</p>
+                    <p className="text-lg text-gray-500">Riwayat Medis Saya</p>
 
-                            <p>RS MMC</p>
+                    <div>
+                        <p className="text-gray-500 mt-5">Hasil</p>
 
-                            <p>Diagnosis: {item.diagnosa}</p>
+                        <div className="bg-[#93B0C8] rounded-lg p-5 mt-3">
+                            {dataRiwayatMedis.map((item: any, index: number) => (
+                                <div key={index} className="p-5 rounded-lg bg-[#0E45B7] text-white flex flex-col gap-2">
+                                    <p className="text-lg font-semibold">Tangga: {formatTanggal(item.tanggal_periksa)} - {item.tenaga_medis.nama_lengkap}</p>
 
-                            <p>Keluhan: {item.keluhan}</p>
+                                    <p>RS MMC</p>
+
+                                    <p>Diagnosis: {item.diagnosa}</p>
+
+                                    <p>Keluhan: {item.keluhan}</p>
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
                 </div>
-            </div>
+            )}
         </div>
     )
 }
